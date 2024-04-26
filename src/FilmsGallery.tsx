@@ -10,7 +10,7 @@ export default function FilmsGallery() {
 
     const page = +(searchParams.get("page") || 1);
 
-    const { data, isPending, isError }: { data: Film[] | undefined, isPending: boolean, isError: boolean } = useQuery({
+    const { data, isPending, isError }= useQuery<Film[]>({
         queryKey: [ "films", page ],
         queryFn: async () => {
             const response = await fetch(`https://api.kinopoisk.dev/v1.4/movie?page=${page}&limit=10`, {

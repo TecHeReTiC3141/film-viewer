@@ -5,9 +5,13 @@ export type Film = {
     releaseDate: string;
     rating: { kp: number | null, imdb: number | null};
     poster: { url: string, previewUrl: string };
-    similarMovies: Film[];
-    genres: string[];
+    similarMovies: SimilarFilm[];
+    sequelsAndPrequels: SimilarFilm[];
+    genres: { name: string }[];
     year: number;
+    movieLength: number;
+    premiere: { world: Date, russia: Date};
+    votes: { kp: string | null, await: number | null }
 }
 
 export type SimilarFilm = {
@@ -16,7 +20,7 @@ export type SimilarFilm = {
     year: number;
     name: string;
     type: string;
-    poster: string;
+    poster: { url: string, previewUrl: string };
 }
 
 export type FilmsResponse = {
