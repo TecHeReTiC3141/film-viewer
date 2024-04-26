@@ -6,13 +6,13 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 interface SimilarMoviesCarouselProps {
     movies: SimilarFilm[],
-    length: number
+    length?: number
 }
 
 export default function SimilarMoviesCarousel({ movies, length = 4 }: SimilarMoviesCarouselProps) {
     const [ shift, setShift ] = useState<number>(0);
 
-    if (!movies || movies.length === 0) return <h3>Похожих фильмов не найдено</h3>
+    if (!movies || movies.length === 0) return <h3 className="font-bold text-lg mt-6">Похожих фильмов не найдено</h3>
 
     return (
         <div className="w-full mt-6 relative">

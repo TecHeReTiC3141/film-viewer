@@ -31,21 +31,34 @@ export default function FilmPage() {
     if (isPending) {
         return <p>Loading...</p>
     }
-    console.log(film.similarMovies, film);
+    console.log(film.premiere);
+    const date = new Date(film.premiere.russia || film.premiere.world);
 
     return (
         <div className="container mx-auto">
-            <Link to="/films" className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2"><FaArrowLeft /> Назад</Link>
+            <Link to="/films"
+                  className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2"><FaArrowLeft/> Назад</Link>
             <h1 className="text-4xl font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
-            <div className="flex flex-col lg:flex-row-reverse gap-4">
-                <img src={film.poster.url || posterPlaceholder} className="w-full object-cover lg:max-w-[40%]" alt={film.name}/>
-                <div className="flex-1">
-                    <p className="mb-6 text-lg">{film.description}</p>
-                    <p><span className="font-bold">Длительность:</span> {film.movieLength ? (`${film.movieLength} мин`) : "Не указано"}</p>
-                    <p><span className="font-bold">Популярность:</span> {film.votes.kp || film.votes.await || "Не указано"}</p>
-                    <p><span className="font-bold">Дата выхода:</span> {film.premiere.russia?.toString() || film.premiere.world?.toString() || "Не указано"}</p>
-                    <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}</p>
-                    <SimilarMoviesCarousel movies={(film.similarMovies || []).concat(film.sequelsAndPrequels || [])} />
+            <div className="flex flex-col xl:flex-row-reverse gap-4">
+                <img src={film.poster.url || posterPlaceholder} className="w-full object-cover xl:max-w-[40%]"
+                     alt={film.name}/>
+                <div className="flex flex-col flex-1">
+                    <div>
+
+                        <p className="mb-6 text-lg">{film.description}</p>
+                        <p><span
+                            className="font-bold">Длительность:</span> {film.movieLength ? (`${film.movieLength} мин`) : "Не указано"}
+                        </p>
+                        <p><span
+                            className="font-bold">Популярность:</span> {film.votes.kp || film.votes.await || "Не указано"}
+                        </p>
+                        <p><span
+                            className="font-bold">Дата выхода:</span> {date?.toLocaleDateString("ru-RU") || "Не указано"}
+                        </p>
+                        <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
+                        </p>
+                    </div>
+                    <SimilarMoviesCarousel movies={(film.similarMovies || []).concat(film.sequelsAndPrequels || [])}/>
                 </div>
             </div>
         </div>
