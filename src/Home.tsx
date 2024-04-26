@@ -1,7 +1,15 @@
+import Header from "./components/Header.tsx";
+import { Outlet } from "react-router-dom";
+import Footer from "./components/Footer";
+
 export default function Home() {
     return (
-        <>
-        <h1 className="text-2xl text-center mt-4">Home page</h1>
-        </>
+        <div className="h-full bg-gray-800 text-white flex flex-col">
+            <Header/>
+            <div className="flex-1">
+                <Outlet/>
+            </div>
+            <Footer/>
+        </div>
     )
 }

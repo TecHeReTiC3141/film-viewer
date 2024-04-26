@@ -1,12 +1,13 @@
 export type Film = {
     id: number;
-    title: string;
+    name: string;
     description: string;
     releaseDate: string;
     rating: { kp: number | null, imdb: number | null};
-    poster: string;
+    poster: { url: string, previewUrl: string };
     similarMovies: Film[];
     genres: string[];
+    year: number;
 }
 
 export type SimilarFilm = {
