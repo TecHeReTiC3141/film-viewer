@@ -24,6 +24,8 @@ export default function FilmsGallery() {
     });
 
     if (isError) console.error("Error fetching films");
+
+    console.log(import.meta.env.VITE_KINOPOISK_API_KEY, data);
     return (
         <div className="container mx-auto pt-6">
             <h1 className="text-2xl font-bold mt-4">Лучшие фильмы</h1>

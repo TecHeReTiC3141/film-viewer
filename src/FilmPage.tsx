@@ -32,15 +32,16 @@ export default function FilmPage() {
         return <p>Loading...</p>
     }
     console.log(film.premiere);
-    const date = new Date(film.premiere.russia || film.premiere.world);
+    const date = film.premiere.russia || film.premiere.world ?
+        new Date(film.premiere.russia || film.premiere.world).toLocaleDateString("ru-RU") : "Не указано";
 
     return (
         <div className="container mx-auto">
-            <Link to="/films"
+            <Link to="/"
                   className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2"><FaArrowLeft/> Назад</Link>
             <h1 className="text-4xl font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
-            <div className="flex flex-col xl:flex-row-reverse gap-4">
-                <img src={film.poster.url || posterPlaceholder} className="w-full object-cover xl:max-w-[40%]"
+            <div className="flex flex-col xl:flex-row-reverse gap-4 px-4">
+                <img src={film.poster.url || posterPlaceholder} className="w-full max-w-48 object-cover xl:max-w-[40%]"
                      alt={film.name}/>
                 <div className="flex flex-col flex-1">
                     <div>
@@ -53,7 +54,7 @@ export default function FilmPage() {
                             className="font-bold">Популярность:</span> {film.votes.kp || film.votes.await || "Не указано"}
                         </p>
                         <p><span
-                            className="font-bold">Дата выхода:</span> {date?.toLocaleDateString("ru-RU") || "Не указано"}
+                            className="font-bold">Дата выхода:</span> {date}
                         </p>
                         <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
                         </p>

@@ -17,7 +17,7 @@ export default function PaginationBar({currentPage, setSearchParams}: Pagination
         <div className="flex w-fit gap-2 my-2 mx-auto">
             {left > 1 && <button onClick={() => setSearchParams({page: `${currentPage - 1}`})}><FaArrowLeftLong /></button>}
             {Array.from(Array(right - left + 1).keys()).map(num => (
-                <button className={clsx("px-4 py-2 text-lg rounded-md", currentPage === left + num ? "bg-white text-gray-800" : "hover:bg-gray-600")}
+                <button key={num} className={clsx("px-4 py-2 text-lg rounded-md", currentPage === left + num ? "bg-white text-gray-800" : "hover:bg-gray-600")}
                         onClick={() => setSearchParams({ page: `${left + num}` })}>{left + num}</button>))}
             <button onClick={() => setSearchParams({ page: `${currentPage + 1}` })}><FaArrowRightLong/></button>
         </div>

@@ -9,8 +9,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const router = createBrowserRouter(createRoutesFromElements(
     <>
         <Route path="/" element={<Home/>}>
-            <Route path="/films/:id" element={<FilmPage/>}/>
-            <Route path="/films" element={<FilmsGallery/>}/>
+            <Route path="/:id" element={<FilmPage/>}/>
+            <Route index element={<FilmsGallery/>}/>
         </Route>
     </>
 ));
