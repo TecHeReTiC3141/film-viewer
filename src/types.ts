@@ -30,3 +30,4 @@ export type FilmsResponse = {
     page: number;
     pages: number;
 }
+

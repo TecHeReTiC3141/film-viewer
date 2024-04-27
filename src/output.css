@@ -688,10 +688,6 @@ video {
   width: 100%;
 }
 
-.w-48 {
-  width: 12rem;
-}
-
 .max-w-48 {
   max-width: 12rem;
 }
@@ -709,12 +705,20 @@ video {
   cursor: pointer;
 }
 
+.resize {
+  resize: both;
+}
+
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
 .grid-cols-\[repeat\(4\2c _minmax\(150px\2c _1fr\)\)\] {
   grid-template-columns: repeat(4, minmax(150px, 1fr));
+}
+
+.grid-cols-\[repeat\(2\2c _minmax\(150px\2c _1fr\)\)\] {
+  grid-template-columns: repeat(2, minmax(150px, 1fr));
 }
 
 .flex-col {
@@ -751,6 +755,10 @@ video {
   row-gap: 2rem;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -771,16 +779,6 @@ video {
 
 .border-t-2 {
   border-top-width: 2px;
-}
-
-.border-black {
-  --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
-}
-
-.border-gray-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(209 213 219 / var(--tw-border-opacity));
 }
 
 .border-gray-500 {
@@ -843,11 +841,6 @@ video {
 .py-4 {
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pt-6 {
@@ -932,6 +925,10 @@ body, #root {
   min-height: 100vh;
 }
 
+.hover\:right-3:hover {
+  right: 0.75rem;
+}
+
 .hover\:bg-black:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -960,10 +957,26 @@ body, #root {
   bottom: 2px;
 }
 
+@media not all and (min-width: 1024px) {
+  .max-lg\:text-center {
+    text-align: center;
+  }
+}
+
 @media not all and (min-width: 640px) {
   .max-sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-\[repeat\(3\2c _minmax\(120px\2c _1fr\)\)\] {
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+  }
+
+  .sm\:grid-cols-\[repeat\(3\2c _minmax\(150px\2c _1fr\)\)\] {
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
   }
 }
 
@@ -974,8 +987,24 @@ body, #root {
 }
 
 @media (min-width: 1024px) {
+  .lg\:max-w-\[40\%\] {
+    max-width: 40%;
+  }
+
+  .lg\:max-w-\[30\%\] {
+    max-width: 30%;
+  }
+
   .lg\:grid-cols-\[repeat\(5\2c _minmax\(150px\2c _1fr\)\)\] {
     grid-template-columns: repeat(5, minmax(150px, 1fr));
+  }
+
+  .lg\:flex-row-reverse {
+    flex-direction: row-reverse;
+  }
+
+  .lg\:text-center {
+    text-align: center;
   }
 }
 

@@ -4,6 +4,7 @@ import { Film } from "./types.ts";
 import { FaArrowLeft } from "react-icons/fa6";
 import SimilarMoviesCarousel from "./components/SimilarMoviesCarousel.tsx";
 import posterPlaceholder from "../public/poster-placeholder.jpg";
+import { useEffect, useState } from "react";
 
 
 export default function FilmPage() {
@@ -24,6 +25,27 @@ export default function FilmPage() {
         }
     });
 
+    const [ carouselLength, setCarouselLength ] = useState(Math.min(4, Math.floor(window.innerWidth / 180)));
+
+    useEffect(() => {
+        if (window.innerWidth < 640) {
+            setCarouselLength(2);
+        } else if (window.innerWidth < 768) {
+            setCarouselLength(3);
+        } else {
+            setCarouselLength(4);
+        }
+        window.addEventListener("resize", () => {
+            if (window.innerWidth < 640) {
+                setCarouselLength(2);
+            } else if (window.innerWidth < 768) {
+                setCarouselLength(3);
+            } else {
+                setCarouselLength(4);
+            }
+        })
+    }, []);
+
     if (isError) {
         return <p>Извините, не смогли загрузить этот фильм. Попробуйте еще раз через некоторое время</p>
     }
@@ -31,17 +53,16 @@ export default function FilmPage() {
     if (isPending) {
         return <p>Loading...</p>
     }
-    console.log(film.premiere);
     const date = film.premiere.russia || film.premiere.world ?
         new Date(film.premiere.russia || film.premiere.world).toLocaleDateString("ru-RU") : "Не указано";
 
     return (
         <div className="container mx-auto">
             <Link to="/"
-                  className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2"><FaArrowLeft/> Назад</Link>
-            <h1 className="text-4xl font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
-            <div className="flex flex-col xl:flex-row-reverse gap-4 px-4">
-                <img src={film.poster.url || posterPlaceholder} className="w-full max-w-48 object-cover xl:max-w-[40%]"
+                  className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2 relative hover:right-3"><FaArrowLeft/> Назад</Link>
+            <h1 className="text-4xl max-lg:text-center font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
+            <div className="flex flex-col lg:flex-row-reverse gap-4 px-4">
+                <img src={film.poster.url || posterPlaceholder} className="w-full max-w-48 object-cover lg:max-w-[30%]"
                      alt={film.name}/>
                 <div className="flex flex-col flex-1">
                     <div>
@@ -59,7 +80,8 @@ export default function FilmPage() {
                         <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
                         </p>
                     </div>
-                    <SimilarMoviesCarousel movies={(film.similarMovies || []).concat(film.sequelsAndPrequels || [])}/>
+                    <SimilarMoviesCarousel movies={(film.similarMovies || []).concat(film.sequelsAndPrequels || [])}
+                                           length={carouselLength}/>
                 </div>
             </div>
         </div>
