@@ -5,12 +5,13 @@ import FilmsGallery from "./FilmsGallery.tsx";
 import Home from "./Home.tsx";
 import FilmPage from "./FilmPage.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import ErrorPage from "./ErrorPage.tsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <>
-        <Route path="/" element={<Home/>}>
-            <Route path="/:id" element={<FilmPage/>}/>
-            <Route index element={<FilmsGallery/>}/>
+        <Route path="/" element={<Home/>} errorElement={<ErrorPage />}>
+            <Route path="/:id" element={<FilmPage/>} errorElement={<ErrorPage />}/>
+            <Route index element={<FilmsGallery/>} errorElement={<ErrorPage />}/>
         </Route>
     </>
 ));
