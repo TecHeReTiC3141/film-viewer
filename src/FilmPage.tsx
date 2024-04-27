@@ -5,6 +5,7 @@ import { FaArrowLeft } from "react-icons/fa6";
 import SimilarMoviesCarousel from "./components/SimilarMoviesCarousel.tsx";
 import posterPlaceholder from "../public/poster-placeholder.jpg";
 import { useCallback, useEffect, useState } from "react";
+import Loading from "./components/Loading.tsx";
 
 
 export default function FilmPage() {
@@ -57,7 +58,7 @@ export default function FilmPage() {
     }
 
     if (isPending) {
-        return <p>Loading...</p>
+        return <Loading text="фильм"/>;
     }
     const date = film.premiere.russia || film.premiere.world ?
         new Date(film.premiere.russia || film.premiere.world).toLocaleDateString("ru-RU") : "Не указано";
