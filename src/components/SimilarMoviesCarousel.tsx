@@ -15,9 +15,10 @@ export default function SimilarMoviesCarousel({ movies, length }: SimilarMoviesC
     if (!movies || movies.length === 0) return <h3 className="font-bold text-lg mt-6">Похожих фильмов не найдено</h3>
 
     return (
-        <div className="w-full mt-6 relative overflow-x-hidden">
+        <div className="w-full mt-6 relative overflow-x-hidden p-2">
             {shift > 0 && <button onClick={() => setShift(curShift => curShift - 1)}
-                                  className="absolute left-2 top-[50%] -translate-y-[50%] rounded-full bg-slate-700 text-gray-200 text-xl p-2 group">
+                                  className="absolute left-2 top-[50%] -translate-y-[50%] rounded-full bg-slate-300 shadow
+                                  border dark:border-0 border-slate-700 dark:bg-slate-700 text-gray-800 dark:text-gray-200 text-xl p-2 group">
                 <FaChevronLeft className="relative group-hover:bottom-[2px]"/></button>}
             <h3 className="text-xl font-bold mb-2">Похожие фильмы</h3>
             <div className="grid gap-x-3 grid-cols-[repeat(2,_minmax(150px,_1fr))] sm:grid-cols-[repeat(3,_minmax(150px,_1fr))] md:grid-cols-[repeat(4,_minmax(150px,_1fr))]">
@@ -27,7 +28,8 @@ export default function SimilarMoviesCarousel({ movies, length }: SimilarMoviesC
             </div>
             {shift + length < movies.length &&
                 <button onClick={() => setShift(curShift => curShift + 1)}
-                        className="absolute right-2 top-[50%] -translate-y-[50%] rounded-full bg-slate-700 text-gray-200 text-xl p-2 group">
+                        className="absolute right-2 top-[50%] -translate-y-[50%] rounded-full bg-slate-300 shadow
+                        border  dark:border-0 border-slate-700 dark:bg-slate-700 text-gray-800 dark:text-gray-200 text-xl p-2 group">
                     <FaChevronRight className="relative group-hover:bottom-[2px]"/></button>}
         </div>
     )

@@ -18,7 +18,9 @@ export default function ThemeSwitcher() {
     return (
         <button onClick={handleThemeSwitch} className="flex gap-3 items-center cursor-pointer">
             <MdOutlineWbSunny/>
-            <div className="rounded-full w-14 h-7 border-4 border-white bg-transparent"></div>
+            <div className="rounded-full w-14 h-7 border-2 border-gray-900 dark:border-white bg-transparent p-2 relative">
+                <div className="h-5 w-5 rounded-full absolute left-1 dark:left-7 top-[1.5px] bg-gray-900 dark:bg-white transition-all duration-300"></div>
+            </div>
             <FaRegMoon/>
         </button>
     )

@@ -13,7 +13,7 @@ export default function FilmPage() {
 
     console.log(id, !Number.isInteger(+id!));
 
-    if (!Number.isInteger(+id!)) {
+    if (!Number.isInteger(+id!) || (+id!) <= 0) {
         throw new Error("Not found");
     }
 
@@ -65,7 +65,8 @@ export default function FilmPage() {
     return (
         <div className="container mx-auto">
             <Link to="/"
-                  className="flex items-center text-lg text-gray-200 hover:text-white gap-2 mt-2 relative hover:right-3"><FaArrowLeft/> Назад</Link>
+                  className="flex items-center text-lg text-gray-600 dark:text-gray-200 hover:font-semibold
+                  hover:text-gray-800 dark:hover:text-white gap-2 mt-2 relative hover:right-3"><FaArrowLeft/> Назад</Link>
             <h1 className="text-4xl max-lg:text-center font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
             <div className="hidden lg:flex flex-col lg:flex-row-reverse gap-4 px-4 ">
                 <img src={film.poster.url || posterPlaceholder} className="w-full object-cover max-w-[35%] rounded-md"
@@ -83,7 +84,8 @@ export default function FilmPage() {
                         <p><span
                             className="font-bold">Дата выхода:</span> {date}
                         </p>
-                        <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
+                        <p><span
+                            className="font-bold text-wrap">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
                         </p>
                     </div>
                     <SimilarMoviesCarousel movies={(film.similarMovies || []).concat(film.sequelsAndPrequels || [])}
@@ -106,7 +108,8 @@ export default function FilmPage() {
                         <p><span
                             className="font-bold">Дата выхода:</span> {date}
                         </p>
-                        <p><span className="font-bold">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
+                        <p><span
+                            className="font-bold text-wrap">Жанр:</span> {film.genres.map(genre => genre.name).join(", ")}
                         </p>
                     </div>
                 </div>

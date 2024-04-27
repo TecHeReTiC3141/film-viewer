@@ -14,7 +14,7 @@ export default function Home() {
     }, []);
 
     return (
-        <div className="h-full bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white flex flex-col">
+        <div className="h-full bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-white flex flex-col transition-colors duration-300">
             <Header/>
             <div className="flex-1">
                 <Outlet/>
