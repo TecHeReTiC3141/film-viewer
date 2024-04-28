@@ -13,15 +13,10 @@ export type Film = {
     movieLength: number;
     premiere: { world: Date, russia: Date };
     votes: { kp: string | null, await: number | null }
-    ratingMpaa: MpaaRatings;
+    ratingMpaa: "pg13" | "g" | "r" | null;
 }
 
-export enum MpaaRatings {
-    "r" = "+18",
-    "pg13" = "12+",
-    "g" = "6+",
-    null = "0+",
-}
+
 
 export type SimilarFilm = {
     id: number;
