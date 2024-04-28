@@ -36,11 +36,11 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
 
     useEffect(() => {
         if (scrollDirection === "DOWN") {
-            barRef?.current?.classList.remove("max-sm:top-16");
-            barRef?.current?.classList.add("max-sm:top-0");
+            barRef?.current?.classList.remove("top-[60px]");
+            barRef?.current?.classList.add("top-0");
         } else if (scrollDirection === "UP") {
-            barRef?.current?.classList.add("max-sm:top-16");
-            barRef?.current?.classList.remove("max-sm:top-0");
+            barRef?.current?.classList.add("top-[60px]");
+            barRef?.current?.classList.remove("top-0");
         }
     }, [ scrollDirection ]);
 
@@ -60,8 +60,8 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
 
     return (
         <div ref={barRef}
-             className={clsx(`bg-gray-200 rounded-b-lg py-3 px-2 dark:bg-gray-800 sticky 
-                 max-sm:top-16 max-sm:left-[50vw] max-sm:-translate-x-1/2 max-sm:z-20 flex w-fit gap-2 my-2 mx-auto transition-all duration-300`)}>
+             className={clsx(`bg-gray-200 border border-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-lg py-3 px-2  sticky 
+                 top-[60px] left-[50vw] -translate-x-1/2 z-20 flex w-fit gap-2 my-2 mx-auto transition-all duration-300`)}>
             {(left > 1 || oneSideBarLength === 0) &&
                 <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
                         disabled={currentPage == 1}

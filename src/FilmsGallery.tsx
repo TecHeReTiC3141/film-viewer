@@ -33,7 +33,6 @@ export default function FilmsGallery() {
         return <Loading text="Фильмы" />;
     }
 
-    // TODO: on big screen add buttons (chevrons) leading to next/previous page
     return (
         <div className="container mx-auto pt-6">
             <h1 className="text-2xl font-bold mt-4 max-md:text-center">Лучшие фильмы</h1>
