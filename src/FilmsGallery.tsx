@@ -26,7 +26,7 @@ export default function FilmsGallery() {
 
     if (isError) {
         console.error("Error fetching films");
-        return <p>Извините, не смогли загрузить фильмы. Попробуйте еще раз через некоторое время</p>;
+        return <p className="container my-8 text-xl">Извините, не смогли загрузить фильмы. Попробуйте еще раз через некоторое время</p>;
     }
 
     if (isPending) {
