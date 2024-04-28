@@ -52,23 +52,30 @@ export default function FilmPage() {
         }
     }, []);
 
+    const date = useMemo(() => film?.premiere.russia || film?.premiere.world ?
+        new Date(film?.premiere.russia || film?.premiere.world).toLocaleDateString("ru-RU") : "Не указано", [ film ]);
 
     useEffect(() => {
         determineCarouseLength();
-        window.addEventListener("resize", () => {
+
+        function handleResize() {
             determineCarouseLength();
-        })
+        }
+
+        window.addEventListener("resize", handleResize);
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        }
     }, [ determineCarouseLength ]);
 
     if (isError) {
-        return <p>Извините, не смогли загрузить этот фильм. Попробуйте еще раз через некоторое время</p>
+        throw new Error("Извините, мы не смогли загрузить этот фильм. Попробуйте еще раз через некоторое время");
     }
 
     if (isPending) {
         return <Loading text="фильм"/>;
     }
-    const date = film.premiere.russia || film.premiere.world ?
-        new Date(film.premiere.russia || film.premiere.world).toLocaleDateString("ru-RU") : "Не указано";
+
 
     return (
         <div className="container mx-auto">

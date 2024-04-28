@@ -26,20 +26,19 @@ export default function FilmsGallery() {
 
     if (isError) {
         console.error("Error fetching films");
-        return <p className="container my-8 text-xl">Извините, не смогли загрузить фильмы. Попробуйте еще раз через некоторое время</p>;
+        throw new Error("Извините, мы не смогли загрузить фильмы. Попробуйте еще раз через некоторое время");
     }
 
     if (isPending) {
         return <Loading text="Фильмы" />;
     }
 
-    // TODO: fix mobile layout
     // TODO: on big screen add buttons (chevrons) leading to next/previous page
     return (
         <div className="container mx-auto pt-6">
             <h1 className="text-2xl font-bold mt-4 max-md:text-center">Лучшие фильмы</h1>
             <PaginationBar currentPage={page} setSearchParams={setSearchParams}/>
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-[repeat(4,_minmax(140px,_1fr))]
+            <div className="w-full grid grid-cols-1 xs:grid-cols-2 md:grid-cols-[repeat(4,_minmax(140px,_1fr))]
                             lg:grid-cols-[repeat(5,_minmax(150px,_1fr))] gap-y-8 gap-x-4 p-4">
                 {data.map((film: Film) => (
                     <FilmCard key={film.id} film={film}/>

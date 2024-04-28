@@ -18,7 +18,7 @@ export default function ErrorPage() {
                               gap-2 mt-2 rounded-full p-3 bg-blue-400 hover:bg-blue-600"><FaArrowLeft/> На главную</Link>
                     </>
                 ) : <>
-                    <h1>Произошла непредвиденная ошибка</h1>
+                    <h1 className="text-lg">{error.message || error.statusText}</h1>
                     <h3>Попробуйте перезагрузить страницу</h3>
                     <button className="flex items-center text-lg text-gray-200 hover:text-white
                               gap-2 mt-2 rounded-full p-3 bg-blue-400 hover:bg-blue-600" onClick={() => navigate(0)}>Обновить страницу</button>
