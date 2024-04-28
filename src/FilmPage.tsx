@@ -4,8 +4,10 @@ import { Film } from "./types.ts";
 import { FaArrowLeft } from "react-icons/fa6";
 import SimilarMoviesCarousel from "./components/SimilarMoviesCarousel.tsx";
 import posterPlaceholder from "../public/poster-placeholder.jpg";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Loading from "./components/Loading.tsx";
+import { formatRating, getRatingColor } from "./utils/rating.ts";
+import clsx from "clsx";
 
 
 export default function FilmPage() {
@@ -31,6 +33,11 @@ export default function FilmPage() {
             return response.json();
         }
     });
+
+    const rating = useMemo(() => formatRating(film), [ film ]);
+
+    const ratingColor = useMemo(() => getRatingColor(+rating), [ rating ]);
+
 
     const [ carouselLength, setCarouselLength ] = useState(Math.min(4, Math.floor(window.innerWidth / 180)));
 
@@ -67,8 +74,10 @@ export default function FilmPage() {
         <div className="container mx-auto">
             <Link to="/"
                   className="flex items-center text-lg text-gray-600 dark:text-gray-200 hover:font-semibold
-                  hover:text-gray-800 dark:hover:text-white gap-2 mt-2 relative hover:right-3"><FaArrowLeft/> Назад</Link>
-            <h1 className="text-4xl max-lg:text-center font-bold my-4">{Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10} {film.name}</h1>
+                  hover:text-gray-800 dark:hover:text-white gap-2 mt-2 relative hover:right-2"><FaArrowLeft/> Назад</Link>
+            <h1 className="text-4xl max-lg:text-center font-bold my-4">
+                <span className={clsx("px-4 rounded-xl", ratingColor)}>{rating}</span> {film.name}
+            </h1>
             <div className="hidden lg:flex flex-col lg:flex-row-reverse gap-4 px-4 ">
                 <img src={film.poster.url || posterPlaceholder} className="w-full object-cover max-w-[35%] rounded-md"
                      alt={film.name}/>

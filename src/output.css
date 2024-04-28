@@ -616,8 +616,12 @@ video {
   left: 0.5rem;
 }
 
-.right-2 {
-  right: 0.5rem;
+.left-3 {
+  left: 0.75rem;
+}
+
+.right-3 {
+  right: 0.75rem;
 }
 
 .top-0 {
@@ -684,10 +688,6 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.block {
-  display: block;
 }
 
 .flex {
@@ -798,10 +798,6 @@ video {
 
 .justify-center {
   justify-content: center;
-}
-
-.justify-between {
-  justify-content: space-between;
 }
 
 .gap-2 {
@@ -984,6 +980,11 @@ video {
   padding-right: 1rem;
 }
 
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .py-2 {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -1087,8 +1088,24 @@ body, #root {
   min-height: 100vh;
 }
 
-.hover\:right-3:hover {
-  right: 0.75rem;
+.hover\:left-1:hover {
+  left: 0.25rem;
+}
+
+.hover\:left-1\.5:hover {
+  left: 0.375rem;
+}
+
+.hover\:right-1:hover {
+  right: 0.25rem;
+}
+
+.hover\:right-1\.5:hover {
+  right: 0.375rem;
+}
+
+.hover\:right-2:hover {
+  right: 0.5rem;
 }
 
 .hover\:bg-blue-600:hover {
@@ -1134,8 +1151,8 @@ body, #root {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.group:hover .group-hover\:bottom-\[2px\] {
-  bottom: 2px;
+.group:hover .group-hover\:bottom-\[1px\] {
+  bottom: 1px;
 }
 
 @media not all and (min-width: 1024px) {
@@ -1145,10 +1162,6 @@ body, #root {
 }
 
 @media not all and (min-width: 768px) {
-  .max-md\:hidden {
-    display: none;
-  }
-
   .max-md\:text-center {
     text-align: center;
   }
@@ -1180,14 +1193,6 @@ body, #root {
 }
 
 @media (min-width: 768px) {
-  .md\:flex {
-    display: flex;
-  }
-
-  .md\:hidden {
-    display: none;
-  }
-
   .md\:grid-cols-\[repeat\(4\2c _minmax\(140px\2c _1fr\)\)\] {
     grid-template-columns: repeat(4, minmax(140px, 1fr));
   }

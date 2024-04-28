@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import posterPlaceholder from "../../public/poster-placeholder.jpg";
 import { useMemo } from "react";
 import clsx from "clsx";
+import { formatRating, getRatingColor } from "../utils/rating.ts";
 
 interface FilmCardProps {
     film: Film,
@@ -11,24 +12,9 @@ interface FilmCardProps {
 export default function FilmCard({ film }: FilmCardProps) {
     console.log(film);
 
-    const rating = useMemo(() => {
-        let r = (Math.round(((film.rating.kp || film.rating.imdb || 0) * 10)) / 10).toString();
-        if (r.length === 1) {
-            r += '.0';
-        }
-        return r;
-    }, [ film ]);
+    const rating = useMemo(() => formatRating(film), [ film ]);
 
-    const ratingColor = useMemo(() => {
-        if (+rating < 3) {
-            return "bg-yellow-600";
-        } else if (+rating < 5) {
-            return "bg-amber-400";
-        } else if (+rating < 7) {
-            return "bg-lime-400";
-        }
-        return "bg-green-500";
-    }, [rating]);
+    const ratingColor = useMemo(() => getRatingColor(+rating), [rating]);
 
     // TODO: when card is hovered, short extended film card (with short description and
     return (
