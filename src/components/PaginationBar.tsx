@@ -15,10 +15,10 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
     const right = useMemo(() => Math.max(7, currentPage + 3), [ currentPage ]);
     return (
         <div className="flex w-fit gap-2 my-2 mx-auto">
-            {left > 1 && <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
+            {left > 1 && <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 max-md:hidden"
                                  onClick={() => setSearchParams({ page: `${currentPage - 1}` })}><FaArrowLeftLong/>
             </button>}
-            <button disabled={currentPage === 1} className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
+            <button disabled={currentPage === 1} className="md:hidden px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
                     onClick={() => setSearchParams({ page: `${currentPage - 1}` })}><FaArrowLeftLong/>
             </button>
             <div className="md:flex gap-2 hidden">
