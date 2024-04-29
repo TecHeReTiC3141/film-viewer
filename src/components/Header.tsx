@@ -13,5 +13,5 @@ export default function Header() {
             <div className="flex-1"/>
             <ThemeSwitcher/>
         </div>
-    )
+    );
 }

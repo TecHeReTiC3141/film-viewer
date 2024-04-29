@@ -14,5 +14,5 @@ export default function SimilarMovieCard({film}: SimilarMovieCardProps) {
             <img className="rounded-md object-cover min-h-[80%] group-hover:brightness-75" src={film.poster.previewUrl || film.poster.url || posterPlaceholder} alt={film.name}/>
             <p className="truncate text-sm mt-2">{film.name}</p>
         </Link>
-    )
+    );
 }

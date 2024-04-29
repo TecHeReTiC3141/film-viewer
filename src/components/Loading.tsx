@@ -13,5 +13,5 @@ export default function Loading({text}: LoadingProps) {
             />
             <h3>Загружаем {text}...</h3>
         </div>
-    )
+    );
 }

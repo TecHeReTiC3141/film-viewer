@@ -51,5 +51,5 @@ export default function FilmCard({ film }: FilmCardProps) {
             </div>
             <ExtendedFilmCard film={film} cardRef={cardRef}/>
         </Link>
-    )
+    );
 }

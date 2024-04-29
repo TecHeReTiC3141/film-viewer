@@ -9,7 +9,6 @@ import Loading from "./components/Loading.tsx";
 import { formatRating, getRatingColor } from "./utils/rating.ts";
 import clsx from "clsx";
 
-
 export default function FilmPage() {
 
     const { id } = useParams();
@@ -38,9 +37,7 @@ export default function FilmPage() {
 
     const ratingColor = useMemo(() => getRatingColor(+rating), [ rating ]);
 
-
     const [ carouselLength, setCarouselLength ] = useState(Math.min(4, Math.floor(window.innerWidth / 180)));
-
 
     const determineCarouseLength = useCallback(() => {
         if (window.innerWidth < 640) {
@@ -75,7 +72,6 @@ export default function FilmPage() {
     if (isPending) {
         return <Loading text="фильм"/>;
     }
-
 
     return (
         <div className="container mx-auto">

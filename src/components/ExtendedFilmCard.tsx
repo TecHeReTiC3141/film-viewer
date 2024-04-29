@@ -36,7 +36,7 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
 
     const [ showDescription, setShowDescription ] = useState<boolean>(false);
 
-    const MAX_SHORT_DESCRIPTION_LENGTH = 80, MAX_DESCRIPTION_LENGTH = 320;
+    const MAX_SHORT_DESCRIPTION_LENGTH = 80, MAX_DESCRIPTION_LENGTH = 600;
 
     const shortDescription = useMemo(() => {
         const description = film.shortDescription || film.description || "Не указано";
@@ -44,8 +44,9 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
         return description.slice(0, MAX_SHORT_DESCRIPTION_LENGTH) + "...";
     }, [ film ]);
 
-     const description = useMemo(() => {
+    const description = useMemo(() => {
         const description = film.description || "Не указано";
+        console.log(description.length, description.slice(0, MAX_DESCRIPTION_LENGTH).length);
         if (description.length <= MAX_DESCRIPTION_LENGTH) return description;
         return description.slice(0, MAX_DESCRIPTION_LENGTH) + "...";
     }, [ film ]);
@@ -115,5 +116,5 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
                 </>
             }
         </div>
-    )
+    );
 }

@@ -30,7 +30,7 @@ export default function FilmsGallery() {
     }
 
     if (isPending) {
-        return <Loading text="Фильмы" />;
+        return <Loading text="фильмы"/>;
     }
 
     return (
@@ -44,5 +44,5 @@ export default function FilmsGallery() {
                 ))}
             </div>
         </div>
-    )
+    );
 }

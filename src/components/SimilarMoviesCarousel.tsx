@@ -3,7 +3,6 @@ import { useState } from "react";
 import SimilarMovieCard from "./SimilarMovieCard.tsx";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
-
 interface SimilarMoviesCarouselProps {
     movies: SimilarFilm[];
     length: number;

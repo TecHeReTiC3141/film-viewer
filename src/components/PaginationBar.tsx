@@ -14,7 +14,6 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
 
     const barRef = useRef<HTMLDivElement>(null);
 
-
     const determineOneSideBarLength = useCallback(() => {
         if (window.innerWidth < 640) {
             setOneSideBarLength(0);
@@ -81,5 +80,5 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
                         onClick={() => setSearchParams({ page: `${currentPage + 1}` })}><FaArrowRightLong/></button>
             </div>
         </div>
-    )
+    );
 }

@@ -11,7 +11,7 @@ export function getRatingColor(rating: number): string {
     return "bg-green-500";
 }
 
-export function formatRating(film: Film | undefined) {
+export function formatRating(film: Film | undefined): string {
     let r = (Math.round(((film?.rating.kp || film?.rating.imdb || 0) * 10)) / 10).toString();
     if (r.length === 1) {
         r += '.0';
