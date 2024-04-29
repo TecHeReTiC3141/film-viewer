@@ -60,23 +60,26 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
 
     return (
         <div ref={barRef}
-             className={clsx(`bg-gray-200 border border-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-lg py-3 px-2  sticky 
-                 top-[60px] left-[50vw] -translate-x-[50%] z-30 flex w-fit gap-2 my-2 mx-auto transition-all duration-300`)}>
-            {(left > 1 || oneSideBarLength === 0) &&
-                <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
-                        disabled={currentPage == 1}
-                        onClick={() => setSearchParams({ page: `${currentPage - 1}` })}><FaArrowLeftLong/>
-                </button>}
-            <div className="flex gap-2">
+             className="sticky top-[60px] z-30 flex justify-center w-full gap-2 my-2 mx-auto transition-all duration-300">
+            <div
+                className="flex items-stretch w-fit bg-gray-200 border border-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-lg py-3 px-2">
 
-                {Array.from(Array(right - left + 1).keys()).map(num => (
-                    <button key={num} disabled={currentPage === left + num}
-                            className={clsx("px-4 py-2 text-lg rounded-md ",
-                                currentPage === left + num ? "bg-gray-800 text-gray-200 dark:bg-white dark:text-gray-800" : "hover:bg-gray-300 dark:hover:bg-gray-600")}
-                            onClick={() => setSearchParams({ page: `${left + num}` })}>{left + num}</button>))}
+                {(left > 1 || oneSideBarLength === 0) &&
+                    <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
+                            disabled={currentPage == 1}
+                            onClick={() => setSearchParams({ page: `${currentPage - 1}` })}><FaArrowLeftLong/>
+                    </button>}
+                <div className="flex gap-2">
+
+                    {Array.from(Array(right - left + 1).keys()).map(num => (
+                        <button key={num} disabled={currentPage === left + num}
+                                className={clsx("px-4 py-2 text-lg rounded-md ",
+                                    currentPage === left + num ? "bg-gray-800 text-gray-200 dark:bg-white dark:text-gray-800" : "hover:bg-gray-300 dark:hover:bg-gray-600")}
+                                onClick={() => setSearchParams({ page: `${left + num}` })}>{left + num}</button>))}
+                </div>
+                <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
+                        onClick={() => setSearchParams({ page: `${currentPage + 1}` })}><FaArrowRightLong/></button>
             </div>
-            <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
-                    onClick={() => setSearchParams({ page: `${currentPage + 1}` })}><FaArrowRightLong/></button>
         </div>
     )
 }

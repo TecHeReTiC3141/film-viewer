@@ -36,12 +36,18 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
 
     const [ showDescription, setShowDescription ] = useState<boolean>(false);
 
-    const MAX_SHORT_DESCRIPTION_LENGTH = 80;
+    const MAX_SHORT_DESCRIPTION_LENGTH = 80, MAX_DESCRIPTION_LENGTH = 320;
 
     const shortDescription = useMemo(() => {
         const description = film.shortDescription || film.description || "Не указано";
         if (description.length <= MAX_SHORT_DESCRIPTION_LENGTH) return description;
         return description.slice(0, MAX_SHORT_DESCRIPTION_LENGTH) + "...";
+    }, [ film ]);
+
+     const description = useMemo(() => {
+        const description = film.description || "Не указано";
+        if (description.length <= MAX_DESCRIPTION_LENGTH) return description;
+        return description.slice(0, MAX_DESCRIPTION_LENGTH) + "...";
     }, [ film ]);
 
     const ratingMapper = {
@@ -72,7 +78,7 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
                         </h4>
                         <div/>
                     </div>
-                    {film.description}
+                    {description}
                 </div>
                 :
                 <>
