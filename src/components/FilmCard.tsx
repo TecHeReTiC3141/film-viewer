@@ -7,7 +7,7 @@ import { formatRating, getRatingColor } from "../utils/rating.ts";
 import ExtendedFilmCard from "./ExtendedFilmCard.tsx";
 
 interface FilmCardProps {
-    film: Film,
+    film: Film;
 }
 
 export default function FilmCard({ film }: FilmCardProps) {
@@ -20,7 +20,6 @@ export default function FilmCard({ film }: FilmCardProps) {
 
     const ratingColor = useMemo(() => getRatingColor(+rating), [ rating ]);
 
-    // TODO: when card is hovered, short extended film card (with short description and
     return (
         <Link ref={cardRef} to={`/${film.id}`}
               onMouseEnter={() => {

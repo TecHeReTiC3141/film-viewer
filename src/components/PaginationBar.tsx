@@ -7,7 +7,7 @@ import { useScrollDirection } from "react-use-scroll-direction";
 
 interface PaginationBarProps {
     currentPage: number;
-    setSearchParams: SetURLSearchParams,
+    setSearchParams: SetURLSearchParams;
 }
 
 export default function PaginationBar({ currentPage, setSearchParams }: PaginationBarProps) {

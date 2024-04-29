@@ -16,8 +16,6 @@ export type Film = {
     ratingMpaa: "pg13" | "g" | "r" | null;
 }
 
-
-
 export type SimilarFilm = {
     id: number;
     rating: number;
