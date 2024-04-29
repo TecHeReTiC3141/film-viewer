@@ -81,8 +81,8 @@ export default function FilmPage() {
         <div className="container mx-auto">
             <Link to="/"
                   className="flex items-center text-lg text-gray-600 dark:text-gray-200 hover:font-semibold
-                  hover:text-gray-800 dark:hover:text-white gap-2 mt-2 relative hover:right-2"><FaArrowLeft/> Назад</Link>
-            <h1 className="text-4xl max-lg:text-center font-bold my-4">
+                  hover:text-gray-800 dark:hover:text-white gap-2 mt-2 relative hover:right-2 max-sm:ml-6"><FaArrowLeft/> Назад</Link>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl max-lg:text-center font-bold my-4">
                 <span className={clsx("px-4 rounded-xl", ratingColor)}>{rating}</span> {film.name}
             </h1>
             <div className="hidden lg:flex flex-col lg:flex-row-reverse gap-4 px-4 ">

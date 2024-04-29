@@ -1337,6 +1337,10 @@ body, #root {
 }
 
 @media not all and (min-width: 640px) {
+  .max-sm\:ml-6 {
+    margin-left: 1.5rem;
+  }
+
   .max-sm\:justify-center {
     justify-content: center;
   }
@@ -1360,6 +1364,11 @@ body, #root {
 
   .sm\:grid-cols-\[repeat\(3\2c _minmax\(150px\2c _1fr\)\)\] {
     grid-template-columns: repeat(3, minmax(150px, 1fr));
+  }
+
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
   }
 }
 
@@ -1397,6 +1406,11 @@ body, #root {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .group.is-hovered .md\:group-\[\.is-hovered\]\:block {
