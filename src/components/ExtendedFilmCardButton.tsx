@@ -2,9 +2,9 @@ import { IconType } from "react-icons";
 import { useState } from "react";
 
 export interface ExtendedFilmCardButtonProps {
-    TurnedOnIcon: IconType,
-    TurnedOffIcon: IconType,
-    text: string,
+    TurnedOnIcon: IconType;
+    TurnedOffIcon: IconType;
+    text: string;
 }
 
 export default function ExtendedFilmCardButton({ TurnedOffIcon, TurnedOnIcon, text }: ExtendedFilmCardButtonProps) {
@@ -20,5 +20,5 @@ export default function ExtendedFilmCardButton({ TurnedOffIcon, TurnedOnIcon, te
             </span>
             <p className="text-xs xl:text-sm text-nowrap">{text}</p>
         </button>
-    )
+    );
 }

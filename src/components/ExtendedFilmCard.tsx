@@ -82,7 +82,7 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
                         <div className={clsx("py-1 px-2  absolute bottom-0 left-0  w-full bg-gray-600 bg-opacity-70")}>
                             <h3 className="font-bold text-xl text-white">{film.name}</h3>
                             <div className="flex items-center gap-x-2 ">
-                                <span className={clsx("px-2 rounded-lg", ratingColor)}>{rating}</span>
+                                <span className={clsx("px-2 rounded-lg font-bold", ratingColor)}>{rating}</span>
                                 <span className="text-gray-300 text-sm">
                             {film.year}, {film.genres.slice(0, 2).map(genre => genre.name).join(", ")} - {film.ratingMpaa ? ratingMapper[ film.ratingMpaa ] : "0+"}
                         </span>
@@ -103,7 +103,7 @@ export default function ExtendedFilmCard({ film, cardRef }: ExtendedFilmCardProp
                             <img src={logo} alt="Смотреть филь" className="w-6"/> Смотреть фильм
                         </button>
                     </div>
-                    <div className="flex justify-between items-center w-full py-2 px-1 gap-x-1 overflow-hidden">
+                    <div className="flex justify-between items-center w-full py-2 px-1 gap-x-1">
                         {buttons.map(button => <ExtendedFilmCardButton key={button.text} {...button}/>)}
                     </div>
                 </>

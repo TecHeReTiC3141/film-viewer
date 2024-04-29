@@ -34,5 +34,5 @@ export default function SimilarMoviesCarousel({ movies, length }: SimilarMoviesC
                         border  dark:border-0 border-slate-700 dark:bg-slate-700 text-gray-800 dark:text-gray-200 text-xl p-2 group">
                     <FaChevronRight className="relative group-hover:bottom-[1px]"/></button>}
         </div>
-    )
+    );
 }

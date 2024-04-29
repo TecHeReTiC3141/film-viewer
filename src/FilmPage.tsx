@@ -110,7 +110,7 @@ export default function FilmPage() {
                 </div>
             </div>
             <div className="w-full lg:hidden  px-4 ">
-                <div className="flex max-sm:justify-center flex-wrap gap-8 mx-auto">
+                <div className="flex max-sm:justify-center flex-wrap gap-x-8 mx-auto">
 
                     <img src={film.poster.url || posterPlaceholder} className="w-full max-w-48 object-cover rounded"
                          alt={film.name}/>
