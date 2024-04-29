@@ -1361,6 +1361,10 @@ body, #root {
     margin-left: 1.5rem;
   }
 
+  .max-sm\:max-h-32 {
+    max-height: 8rem;
+  }
+
   .max-sm\:justify-center {
     justify-content: center;
   }
