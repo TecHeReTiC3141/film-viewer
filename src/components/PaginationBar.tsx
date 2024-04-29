@@ -60,12 +60,12 @@ export default function PaginationBar({ currentPage, setSearchParams }: Paginati
 
     return (
         <div ref={barRef}
-             className="sticky top-[60px] z-30 flex justify-center w-full gap-2 my-2 mx-auto transition-all duration-300">
+             className="sticky top-[60px] z-30 flex justify-center w-full my-2 mx-auto transition-all duration-300">
             <div
-                className="flex items-stretch w-fit bg-gray-200 border border-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-lg py-3 px-2">
+                className="flex items-stretch gap-x-2 w-fit bg-gray-200 border border-gray-400 dark:border-gray-700 dark:bg-gray-800 rounded-lg py-3 px-2">
 
                 {(left > 1 || oneSideBarLength === 0) &&
-                    <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600"
+                    <button className="px-4 py-2 text-lg rounded-md hover:bg-gray-300 dark:hover:bg-gray-600 disabled:text-gray-500 disabled:dark:text-gray-300"
                             disabled={currentPage == 1}
                             onClick={() => setSearchParams({ page: `${currentPage - 1}` })}><FaArrowLeftLong/>
                     </button>}
