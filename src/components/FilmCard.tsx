@@ -36,7 +36,7 @@ export default function FilmCard({ film }: FilmCardProps) {
             transition-colors duration-300 rounded-xl p-2 shadow shadow-black hover:shadow-gray-200
             dark:text-gray-200 dark:hover:text-white text-gray-800 hover:text-gray-200 relative group">
 
-            <div className="min-h-[80%] max-h-[100%] max-sm:max-h-32 relative">
+            <div className="min-h-[80%] max-h-[100%] max-sm:max-h-60 max-xs:max-h-52 relative">
 
                 <img className="rounded-md object-cover h-full"
                      src={film.poster?.previewUrl || film.poster?.url || posterPlaceholder} alt={film.name}/>
